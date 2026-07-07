@@ -7,7 +7,10 @@
     float populacao;
     float area;
     float pib;
-    int turistico; 
+    int turistico;
+    float divisao;
+    float densidade;
+    float capita; 
 
     printf("Coloque a letra que representa o estado da sua carta: ");
     scanf(" %c", &estado);
@@ -29,6 +32,9 @@
     
     printf("Coloque quantos pontos turisticos existem na sua carta: ");
     scanf(" %d", &turistico);
+
+    densidade = (populacao + area) / 2;
+    capita = (pib + populacao) / 2;
     
     printf("Carta 1: \n");
     printf("Estado da carta: %c\n", estado);
@@ -38,6 +44,8 @@
     printf("Area: %.3f hectares\n", area);
     printf("Pib: %.2f bilhoes de reais\n", pib);
     printf("Pontos Turisticos: %d\n", turistico);
+    printf("Densidade Populacional: %.3f hab/km2\n", densidade);
+    printf("Pib per Capita: %.3f reais\n", capita);
 
     printf("Coloque a letra que representa o estado da sua carta: ");
     scanf(" %c", &estado);
@@ -60,6 +68,9 @@
     printf("Coloque quantos pontos turisticos existem na sua carta: ");
     scanf(" %d", &turistico);
 
+    densidade = (populacao + area) / 2;
+    capita = (pib + populacao) / 2;
+
     printf("Carta 2: \n");
     printf("Estado da carta: %c\n", estado);
     printf("Codigo do estado: %s\n", codigo);
@@ -67,7 +78,9 @@
     printf("Populacao: %.3f habitantes\n", populacao);
     printf("Area: %.3f hectares\n", area);
     printf("Pib: %.2f bilhoes de reais.\n", pib);
-    printf("Pontos turisticos: %d", turistico);
+    printf("Pontos turisticos: %d\n", turistico);
+    printf("Densidade Populacional: %.3f hab/km2\n", densidade);
+    printf("Pib per Capita: %.3f reais\n", capita);
 
 
    return 0;
