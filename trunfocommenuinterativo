@@ -1,11 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
    int main (){
   
-    char pais[50], pais1[50], pais2[50];
-    int populacao, turistico, escolha, turistico1, turistico2;
-    float area, pib, densidade, area1, area2, pib1, pib2, densidade1, densidade2, populacao1, populacao2;
+    char pais1[50], pais2[50];
+    int escolha, turistico1, turistico2;
+    float area1, area2, pib1, pib2, densidade1, densidade2, populacao1, populacao2;
 
     printf("### SUPER TRUNFO ###\n");
     printf("1. Iniciar o Trunfo\n");
