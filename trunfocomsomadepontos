@@ -1,0 +1,210 @@
+#include <stdio.h>
+#include <io.h>
+#include <fcntl.h>
+   int main (){
+     
+    _setmode(_fileno(stdout), _O_U16TEXT);
+
+    char pais1[50], pais2[50];
+    int escolha, turistico1, turistico2;
+    float area1, area2, pib1, pib2, densidade1, densidade2;
+    int pontos1 = 0, pontos2 = 0; 
+    unsigned long long populacao1, populacao2;
+
+    wprintf(L"### SUPER TRUNFO ###\n");
+    wprintf(L"1. Iniciar o Trunfo\n");
+    wprintf(L"2. Regras do Jogo\n");
+    wprintf(L"3. Fechar o Jogo\n");
+    wprintf(L"Escolha a sua opção: ");
+    wscanf(L"%d", &escolha);
+
+    switch (escolha)
+    {
+    case 1:
+    wprintf(L"Coloque o nome do país: ");
+    scanf(" %49[^\n]", pais1);
+    wprintf(L"Coloque o nome do país: ");
+    scanf(" %49[^\n]", pais2);
+    wprintf(L"Escolha um atributo para comparar:\n");
+    wprintf(L"1. População\n");
+    wprintf(L"2. Área\n");
+    wprintf(L"3. PIB\n");
+    wprintf(L"4. Pontos Turísticos\n");
+    wprintf(L"5. Densidade demográfica\n");
+    wprintf(L"Escolha uma opção: ");
+    scanf("%d", &escolha);
+    
+    
+    switch (escolha)
+    {
+    case 1:
+    wprintf(L"População do(a) %hs: ", pais1);
+    scanf("%llu", &populacao1);
+    wprintf(L"População do(a) %hs: ", pais2);
+    scanf("%llu", &populacao2);
+    wprintf(L"A população do(a) %hs é: %llu.%03llu.%03llu milhões\n", pais1,
+    populacao1 / 1000000,
+    (populacao1 / 1000) % 1000,
+    populacao1 % 1000);
+    wprintf(L"A população do(a) %hs é: %llu.%03llu.%03llu milhões\n", pais2,
+    populacao2 / 1000000,
+    (populacao2 / 1000) % 1000,
+    populacao2 % 1000);
+    
+    if (populacao1 > populacao2)
+    {
+    wprintf(L"%hs ganhou do(a) %hs\n", pais1, pais2);
+    pontos1++;
+    }else if (populacao2 > populacao1)
+    {
+    wprintf(L"%hs ganhou do(a) %hs!\n", pais2, pais1);
+    pontos2++; 
+    } else 
+    {
+    wprintf(L"Empatou!\n");
+    }if (populacao1 > populacao2)
+    {
+    wprintf(L"%hs marcou 1 ponto!\n", pais1);
+    }else if (populacao2 > populacao1)
+    {
+    wprintf(L"%hs marcou 1 ponto!\n", pais2);
+    }else 
+    {
+    wprintf(L"Empatou!\n");
+    }
+    
+    case 2:
+    wprintf(L"Área do(a) %hs: ", pais1);
+    scanf("%f", &area1);
+    wprintf(L"Área do(a) %hs: ", pais2);
+    scanf("%f", &area2);
+    wprintf(L"A área do(a) %hs é: %.3f km2\n", pais1, area1);
+    wprintf(L"A área do(a) %hs é: %.3f km2\n", pais2, area2);
+    
+    if (area1 > area2)
+    {
+    wprintf(L"%hs ganhou do(a) %hs!\n", pais1, pais2);
+    pontos1++;
+    }else if (area2 > area1){
+    wprintf(L"%hs ganhou do(a) %hs!\n", pais2, pais1);
+    pontos2++;
+    }else {
+    wprintf(L"Empatou!\n");
+    }if (area1 > area2)
+    {
+    wprintf(L"%hs marcou 1 ponto!\n", pais1);
+    }else if (area2 > area1)
+    {
+    wprintf(L"%hs marcou 1 ponto!\n", pais2);
+    }else
+    {
+    wprintf(L"Empatou!\n");
+    }
+    
+    case 3:
+    wprintf(L"PIB do(a) %hs!: ", pais1);
+    scanf("%f", &pib1);
+    wprintf(L"PIB do(a) %hs!: ", pais2);
+    scanf("%f", &pib2);
+    wprintf(L"O pib do(a) %hs é: %.3f trilhões\n", pais1, pib1);
+    wprintf(L"O pib do(a) %hs é: %.3f trilhões\n", pais2, pib2);
+    
+    if (pib1 > pib2)
+    {
+    wprintf(L"%hs ganhou do(a) %hs!\n", pais1, pais2);
+    pontos1++;
+    }else if (pib2 > pib1){
+    wprintf(L"%hs ganhou do(a) %hs!\n", pais2, pais1);
+    pontos2++;
+    }else
+    {
+    wprintf(L"Empatou!");
+    }if (pib1 > pib2)
+    {
+    wprintf(L"%hs marcou 1 ponto!\n", pais1);
+    }else if (pib2 > pib1)
+    {
+    wprintf(L"%hs marcou 1 ponto!\n", pais2);
+    }else
+    {
+    wprintf(L"Empatou!\n");
+    }
+    
+    case 4:
+    wprintf(L"Pontos Turísticos do(a) %hs: ", pais1);
+    scanf("%d", &turistico1);
+    wprintf(L"Pontos Turísticos do(a) %hs: ", pais2);
+    scanf("%d", &turistico2);
+    wprintf(L"O ponto turístico do(a) %hs é: %d\n", pais1, turistico1);
+    wprintf(L"O ponto turístico do(a) %hs é: %d\n", pais2, turistico2);
+    if (turistico1 > turistico2)
+    {
+    wprintf(L"%hs ganhou do(a) %hs!\n", pais1, pais2);
+    pontos1++;
+    }else if (turistico2 > turistico1)
+    {
+    wprintf(L"%hs ganhou do(a) %hs!\n", pais2, pais1);
+    pontos2++;
+    }else 
+    {
+    wprintf(L"Empatou!");
+    }if (turistico1 > turistico2)
+    {
+    wprintf(L"%hs marcou 1 ponto!\n", pais1);
+    }else if (turistico2 > turistico1)
+    {
+    wprintf(L"%hs marcou 1 ponto!\n", pais2);
+    }else
+    {
+    wprintf(L"Empatou!\n");
+    }
+       
+    case 5:
+    wprintf(L"Densidade Demográfica do(a) %hs: ", pais1);
+    scanf("%f", &densidade1);
+    wprintf(L"Densidade Demográfica do(a) %hs: ", pais2);
+    scanf("%f", &densidade2);
+    wprintf(L"A densidade demográfica do(a) %hs é: %.3f hab/km2\n",pais1, densidade1);
+    wprintf(L"A densidade demográfica do(a) %hs é: %.3f hab/km2\n", pais2, densidade2);
+    if (densidade1 < densidade2)
+    {
+    wprintf(L"%hs ganhou do(a) %hs!\n", pais1, pais2);
+    pontos1++;
+    }else if (densidade2 < densidade1)
+    {
+    wprintf(L"%hs ganhou do(a) %hs!\n", pais2, pais1);
+    pontos2++;
+    }else
+    {
+    wprintf(L"Empatou!\n");
+    }if (densidade1 < densidade2)
+    {
+    wprintf(L"%hs marcou 1 ponto!\n", pais1);
+    }else if (densidade2 < densidade1)
+    {
+    wprintf(L"%hs marcou 1 ponto!\n", pais2);
+    }else 
+    {
+    wprintf(L"Empatou!\n");
+    }
+
+    printf("### RESULTADO FINAL ###\n");
+    wprintf(L"%d pontos para o(a) %hs\n", pontos1, pais1);
+    wprintf(L"%d pontos para o(a) %hs\n", pontos2, pais2);
+      
+    break; 
+    }break;
+    case 2:
+    printf("O Super Trunfo consiste em cada jogador comparar o atributo escolhido na rodada, quem tiver o maior numero (exceto na densidade), faz um ponto\n");
+    break;
+    case 3:
+    printf("Fechando o jogo...");
+    break;
+    default:
+    wprintf(L"Opção Inválida!");
+    break;
+    }
+    
+    return 0;
+
+}
